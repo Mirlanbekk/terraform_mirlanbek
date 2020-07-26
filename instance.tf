@@ -7,6 +7,10 @@ provider "aws" {
 resource "aws_instance" "example" {
   ami           = "ami-08f3d892de259504d"
   instance_type = "t2.micro"
+  key_name = "mirtoday"
+  subnet_id = aws_subnet.public_subnet.id
+  associate_public_ip_address = true
+
 
   tags = {
     Name = "web_server" 
